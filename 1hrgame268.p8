@@ -180,13 +180,15 @@ end
 -->8
 function generate_coins()
 	coins={}
- for i=0,10 do	 
-	 _coin={
-	  x=ceil(rnd(120)),
-	  y=ceil(rnd(120))
-	 }
-	
-	 add(coins, _coin)
+ for i=0,10 do	
+  repeat 
+		 _coin={
+		  x=ceil(rnd(120)),
+		  y=ceil(rnd(120))
+		 }
+		until (not colliding(_coin, home, 20))
+
+		add(coins, _coin)
 	end
 end
 
